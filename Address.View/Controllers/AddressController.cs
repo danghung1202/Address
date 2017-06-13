@@ -7,7 +7,9 @@ using Address.Business;
 using Address.Business.Entities;
 using Address.Business.Repositories;
 using Address.Business.Status;
-using GoldenSoft.SSO.Core;
+using Address.View.Models;
+using Profiles.Core.App;
+using Profiles.Core.Protocol;
 
 namespace Address.View.Controllers
 {
@@ -34,28 +36,48 @@ namespace Address.View.Controllers
         }
 
         [HttpPost]
-        public JsonResult authorize() {
-            
-            return Json(new { isAuthorize = true /*User.Identity.IsAuthenticated*/ });
+        public JsonResult authorize()
+        {
+            if (Request.IsAjaxRequest())
+            {
+                return Json(new { isAuthorize = User.Identity.IsAuthenticated && (User.GetUserName() != null) });
+            }
+            else
+            {
+                return Json(string.Empty);
+            }
         }
 
         [HttpPost]
         public JsonResult getaddress(string id)
         {
-            Address.Business.Entities.Address address = _addressRes.Address_GetDetailWithChildren(id);
-            return Json(address);
+            if (Request.IsAjaxRequest())
+            {
+                Address.Business.Entities.Address address = _addressRes.Address_GetDetailWithChildren(id);
+                return Json(address);
+            }
+            else
+            {
+                return Json(string.Empty);
+            }
         }
 
         [HttpGet]
-        [Authorize]
+        [GSAuthorize]
         public ActionResult add()
         {
-            //TODO: Kiem tra dang nhap
-            return PartialView("dialog/add");
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("dialog/add");
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
 
         [HttpPost]
-        [Authorize]
+        [GSAuthorize]
         public ActionResult add(string aname, string adesc, string acenter, string aborder, int alevel, string aparent)
         {
             //TODO: Kiem tra dang nhap
@@ -73,7 +95,8 @@ namespace Address.View.Controllers
 
             //TODO: Validate đường bao o day
 
-            ResultValidate result = _addressRes.Address_AddValidate(address);
+            ResultValidate result = new ResultValidate { DiemNamTrongDuongBao = 1, DuongBaoHopLe = 1, DuongBaoNamTrongDuongBao = 1, DiaDanhTrung = new List<Business.Entities.Address>() };
+            // ResultValidate result = _addressRes.Address_AddValidate(address);
             bool b = false;
             if (result.DiemNamTrongDuongBao == 1 && result.DuongBaoHopLe == 1 && result.DuongBaoNamTrongDuongBao == 1 && result.DiaDanhTrung.Count == 0 ) { 
                 b = _addressRes.Address_Add(address);
@@ -84,16 +107,30 @@ namespace Address.View.Controllers
         [HttpGet]
         public ActionResult detail(string id)
         {
-            Address.Business.Entities.Address address = _addressRes.Address_GetDetailWithHistory(id, User.Identity.Name);
-            return PartialView("dialog/detail", address);
+            if (Request.IsAjaxRequest())
+            {
+                Address.Business.Entities.Address address = _addressRes.Address_GetDetailWithHistory(id, User.Identity.Name);
+                return PartialView("dialog/detail", address);
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
 
         [HttpPost]
         public JsonResult historydetail(string id)
         {
-            Address.Business.Entities.History history = _historyRes.History_GetDetail(id);
-            
-            return Json(history);
+            if (Request.IsAjaxRequest())
+            {
+                Address.Business.Entities.History history = _historyRes.History_GetDetail(id);
+
+                return Json(history);
+            }
+            else
+            {
+                return Json(string.Empty);
+            }
         }
 
         /// <summary>
@@ -102,12 +139,19 @@ namespace Address.View.Controllers
         /// <param name="p"></param>
         /// <returns></returns>
         [HttpGet]
-        [Authorize]
+        [GSAuthorize]
         public ActionResult gethistories(int p)
         {
             //TODO: Kiem tra dang nhap
-            List<History> histories = _historyRes.History_GetAddressOfUser(User.Identity.Name, p, 15);
-            return PartialView("../history/index",histories);
+            if (Request.IsAjaxRequest())
+            {
+                List<History> histories = _historyRes.History_GetAddressOfUser(User.Identity.Name, p, 15);
+                return PartialView("../history/index", histories);
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
 
         /// <summary>
@@ -119,12 +163,19 @@ namespace Address.View.Controllers
         public ActionResult newest(int p)
         {
             //TODO: Kiem tra dang nhap
-            List<History> histories = _historyRes.History_GetNewest(p, 15);
-            return PartialView("../history/index", histories);
+            if (Request.IsAjaxRequest())
+            {
+                List<History> histories = _historyRes.History_GetNewest(p, 15);
+                return PartialView("../history/index", histories);
+            }
+            else
+            {
+                return new EmptyResult();
+            }
         }
 
         [HttpPost]
-        [Authorize]
+        [GSAuthorize]
         public ActionResult update(string aid, string aname, string adesc, string acenter, string aborder, int alevel, string aparent)
         {
             //TODO: Kiem tra dang nhap
@@ -153,8 +204,8 @@ namespace Address.View.Controllers
                 ,H_ActionDetail = string.Empty
             };
             //TODO: Validate đường bao o day
-
-            ResultValidate result = _addressRes.Address_AddValidate(address);
+            ResultValidate result = new ResultValidate { DiemNamTrongDuongBao = 1, DuongBaoHopLe = 1, DuongBaoNamTrongDuongBao = 1, DiaDanhTrung = new List<Business.Entities.Address>() };
+            //ResultValidate result = _addressRes.Address_AddValidate(address);
             bool b = false;
             if (result.DiemNamTrongDuongBao == 1 && result.DuongBaoHopLe == 1 && result.DuongBaoNamTrongDuongBao == 1 && result.DiaDanhTrung.Count == 0)
             {
@@ -164,29 +215,53 @@ namespace Address.View.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [GSAuthorize]
         public JsonResult delete(string aid, string reasons)
         {
-            bool b = _addressRes.Address_Delete(aid, User.Identity.Name, reasons);
+            //TODO: Kiem tra dang nhap
+            if (Request.IsAjaxRequest())
+            {
+                bool b = _addressRes.Address_Delete(aid, User.Identity.Name, reasons);
 
-            Address.Business.Entities.User u = _userRes.User_GetDetail(User.Identity.Name);
-            return Json(new { success = b, urole = u.U_Role });
+                Address.Business.Entities.User u = _userRes.User_GetDetail(User.Identity.Name);
+                return Json(new { success = b, urole = u.U_Role });
+            }
+            else
+            {
+                return Json(string.Empty);
+            }
         }
 
         [HttpPost]
-        [Authorize]
+        [GSAuthorize]
         public JsonResult restore(string hid)
         {
-            bool b = _addressRes.Address_RestoreFromHistory(hid, User.Identity.Name);
-            return Json(new { success = b});
+            //TODO: Kiem tra dang nhap
+            if (Request.IsAjaxRequest())
+            {
+                bool b = _addressRes.Address_RestoreFromHistory(hid, User.Identity.Name);
+                return Json(new { success = b });
+            }
+            else
+            {
+                return Json(string.Empty);
+            }
         }
 
         [HttpPost]
-        [Authorize]
+        [GSAuthorize]
         public JsonResult exists(string pid, int level, string center)
         {
-            List<Address.Business.Entities.Address> addresses = _addressRes.Address_CheckExists(pid, level,center);
-            return Json(addresses);
+            //TODO: Kiem tra dang nhap
+            if (Request.IsAjaxRequest())
+            {
+                List<Address.Business.Entities.Address> addresses = _addressRes.Address_CheckExists(pid, level, center);
+                return Json(addresses);
+            }
+            else
+            {
+                return Json(string.Empty);
+            }
         }
 
         public ActionResult about()

@@ -29,17 +29,17 @@ namespace Address.Business.Entities
         public string A_Description { get; set; }
         [DataMember]
         public string A_CreatedByUser { get; set; }
-        [DataMember]
+        //[DataMember]
         public DateTime A_CreatedOnDate { get; set; }
         [DataMember]
         public string A_ReviewedByUser { get; set; }
-        [DataMember]
+        //[DataMember]
         public DateTime A_ReviewedOnDate { get; set; }
         [DataMember]
         public int A_Status { get; set; }
-        [DataMember]
+        //[DataMember]
         public User A_User { get; set; }
-        [DataMember]
+        //[DataMember]
         public List<History> A_History { get; set; }
         [DataMember]
         public List<Address> A_Children { get; set; }

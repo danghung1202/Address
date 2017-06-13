@@ -1,7 +1,9 @@
 ﻿@if(Request.IsAuthenticated) {
     <text>Xin chào <strong>@User.Identity.Name</strong>!
-    [ @Html.ActionLink("Đăng xuất", "LogOut", "Account") ]</text>
+    [@* @Html.ActionLink("Đăng xuất", "LogOut", "Account")*@ 
+<a href="/logout.ashx" >Đăng xuất</a>
+]</text>
 }
 else {
-    @:[ @Html.ActionLink("Đăng nhập", "LogOn", "Account") ]
+    @:[ <a href="/login.ashx" >Đăng nhập</a> ]
 }

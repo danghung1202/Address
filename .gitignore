@@ -6,6 +6,8 @@ Address.Business/obj/
 Address.Wcf/bin/
 Address.Wcf/obj/
 packages
+Address.Wcf/Properties/PublishProfiles/
+Address.View/Properties/PublishProfiles/
 
 # ReSharper is a .NET coding add-in
 _ReSharper*/
@@ -28,3 +30,4 @@ $RECYCLE.BIN/
 # Visual Studio 2015 settings folder
 .vs/
 .vscode/
+*.suo

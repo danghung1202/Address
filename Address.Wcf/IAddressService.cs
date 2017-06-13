@@ -15,7 +15,7 @@ namespace Address.Wcf
     public interface IAddressService
     {
         /// <summary>
-        /// Cập nhật thông tin của tài liệu trong phòng ban.
+        /// Lay dia chi cua mot dia diem tren ban do
         /// </summary>
         /// <param name="resource">Đối tượng tài nguyên được cập nhật</param>
         /// <returns></returns>
@@ -23,6 +23,14 @@ namespace Address.Wcf
         [WebGet(ResponseFormat = WebMessageFormat.Json)]
         List<string> Address_GetAddressOfLocation(string A_Center);
 
-       
+        /// <summary>
+        /// Cập nhật thông tin của tài liệu trong phòng ban.
+        /// </summary>
+        /// <param name="resource">Đối tượng tài nguyên được cập nhật</param>
+        /// <returns></returns>
+        [OperationContract]
+        [WebGet(ResponseFormat = WebMessageFormat.Json)]
+        Address.Business.Entities.Address Address_Get(string id);
+
     }
 }

@@ -18,7 +18,8 @@ namespace Address.Wcf
         private HistoryRepository _historyRes;
         private UserRepository _userRes;
 
-        public AddressService(): this(new AddressRepository(), new HistoryRepository(), new UserRepository())
+        public AddressService()
+            : this(new AddressRepository(), new HistoryRepository(), new UserRepository())
         {
 
         }
@@ -30,15 +31,20 @@ namespace Address.Wcf
             this._userRes = userRes;
         }
 
-        
+
         /// <summary>
-        /// Cập nhật thông tin của tài liệu trong phòng ban.
+        /// Get address from latitude and longtitude of center.
         /// </summary>
         /// <param name="resource">Đối tượng tài nguyên được cập nhật</param>
         /// <returns></returns>
         public List<string> Address_GetAddressOfLocation(string A_Center)
         {
-            return _addressRes.Address_GetAddressOfLocation(A_Center);
+            return  _addressRes.Address_GetAddressOfLocation(A_Center);
+        }
+
+        public Address.Business.Entities.Address Address_Get(string id)
+        {
+            return _addressRes.Address_GetDetailWithChildren(id);
         }
     }
 }

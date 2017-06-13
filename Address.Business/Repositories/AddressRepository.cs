@@ -9,7 +9,7 @@ using Address.Business.Entities;
 
 namespace Address.Business.Repositories
 {
-    public class AddressRepository: BaseRepository
+    public class AddressRepository : BaseRepository
     {
         /// <summary>
         /// Thêm mới địa chỉ, kiem tra user chua ton tai cung them vao luon
@@ -55,7 +55,7 @@ namespace Address.Business.Repositories
             _dbAdapter.ResetParams();
             _dbAdapter.AddParam(SqlDbType.VarChar, "@H_ID", H_ID);
             _dbAdapter.AddParam(SqlDbType.NVarChar, "@UserID", UserID);
-           
+
             return _dbAdapter.Insert("Address_RestoreFromHistory");
         }
         /// <summary>
@@ -78,7 +78,7 @@ namespace Address.Business.Repositories
                     address.A_ID = reader["A_ID"].ToString();
                     address.A_Center = reader["A_Center"].ToString();
                     address.A_ParentID = reader["A_ParentID"].ToString();
-                    address.A_Level = int.Parse(reader["A_Level"].ToString()) ;
+                    address.A_Level = int.Parse(reader["A_Level"].ToString());
                     address.A_Name = (string)reader["A_Name"];
                     address.A_Description = reader["A_Description"] != DBNull.Value ? (string)reader["A_Description"] : string.Empty;
                 }
@@ -108,7 +108,7 @@ namespace Address.Business.Repositories
                     address.A_Children.Add(child);
                 }
 
-                
+
             }
             reader.Close();
             return address;
@@ -144,7 +144,7 @@ namespace Address.Business.Repositories
 
                 }
             }
-            
+
             reader.NextResult();
             address.A_History = new List<History>();
             History history = null;
@@ -172,7 +172,7 @@ namespace Address.Business.Repositories
                     address.A_History.Add(history);
                 }
 
-                
+
             }
             reader.Close();
             return address;
@@ -235,7 +235,7 @@ namespace Address.Business.Repositories
                     address.A_Status = int.Parse(reader["A_Status"].ToString());
                     result.DiaDanhTrung.Add(address);
                 }
-                
+
             }
             reader.Close();
             return result;

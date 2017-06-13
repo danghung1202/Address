@@ -1,6 +1,14 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapter", "Adapter", "{7B346861-276F-4929-B237-32640E878245}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{F1900485-11F8-4BD7-977D-EFFCBA0A9370}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{97CA4F62-075E-4848-A5A5-C9EE4E910EC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wcf", "Wcf", "{C2801575-C2FB-454A-BA71-CC2D729B578F}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address.Business", "Address.Business\Address.Business.csproj", "{24D708B9-1478-48F4-83D8-17030A804AB7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address.View", "Address.View\Address.View.csproj", "{B7407CFA-D4EF-460D-82D2-02AE69A79879}"
@@ -10,14 +18,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address.View", "Address.Vie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter.DataBase", "..\..\..\..\Utilities\Source\Adapter\Adapter.DataBase\Adapter.DataBase.csproj", "{BA121443-8527-476C-A560-B6A6F4851C05}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapter", "Adapter", "{7B346861-276F-4929-B237-32640E878245}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{F1900485-11F8-4BD7-977D-EFFCBA0A9370}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main", "Main", "{97CA4F62-075E-4848-A5A5-C9EE4E910EC6}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wcf", "Wcf", "{C2801575-C2FB-454A-BA71-CC2D729B578F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter.Cache", "..\..\..\..\Utilities\Source\Adapter\Adapter.Cache\Adapter.Cache.csproj", "{786EAB06-FC69-415B-825D-30AD2B9DBA93}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter.WCF", "..\..\..\..\Utilities\Source\Adapter\Adapter.WCF\Adapter.WCF.csproj", "{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}"
@@ -26,34 +26,34 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Address.Wcf", "Address.Wcf\
 EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://tfs.golden.net.vn:8080/tfs/gs.projectscollection
 		SccLocalPath0 = .
-		SccProjectUniqueName1 = Address.Business\\Address.Business.csproj
-		SccProjectTopLevelParentUniqueName1 = Address.sln
-		SccProjectName1 = Address.Business
 		SccLocalPath1 = Address.Business
-		SccProjectUniqueName2 = Address.View\\Address.View.csproj
-		SccProjectTopLevelParentUniqueName2 = Address.sln
-		SccProjectName2 = Address.View
 		SccLocalPath2 = Address.View
-		SccProjectUniqueName3 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.DataBase\\Adapter.DataBase.csproj
-		SccProjectTopLevelParentUniqueName3 = Address.sln
-		SccProjectName3 = ../../../../Utilities/Source/Adapter/Adapter.DataBase
 		SccLocalPath3 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.DataBase
-		SccProjectUniqueName4 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.Cache\\Adapter.Cache.csproj
-		SccProjectTopLevelParentUniqueName4 = Address.sln
-		SccProjectName4 = ../../../../Utilities/Source/Adapter/Adapter.Cache
 		SccLocalPath4 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.Cache
-		SccProjectUniqueName5 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.WCF\\Adapter.WCF.csproj
-		SccProjectTopLevelParentUniqueName5 = Address.sln
-		SccProjectName5 = ../../../../Utilities/Source/Adapter/Adapter.WCF
 		SccLocalPath5 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.WCF
-		SccProjectUniqueName6 = Address.Wcf\\Address.Wcf.csproj
-		SccProjectTopLevelParentUniqueName6 = Address.sln
-		SccProjectName6 = Address.Wcf
 		SccLocalPath6 = Address.Wcf
+		SccNumberOfProjects = 7
+		SccProjectName1 = Address.Business
+		SccProjectName2 = Address.View
+		SccProjectName3 = ../../../../Utilities/Source/Adapter/Adapter.DataBase
+		SccProjectName4 = ../../../../Utilities/Source/Adapter/Adapter.Cache
+		SccProjectName5 = ../../../../Utilities/Source/Adapter/Adapter.WCF
+		SccProjectName6 = Address.Wcf
+		SccProjectTopLevelParentUniqueName1 = Address.sln
+		SccProjectTopLevelParentUniqueName2 = Address.sln
+		SccProjectTopLevelParentUniqueName3 = Address.sln
+		SccProjectTopLevelParentUniqueName4 = Address.sln
+		SccProjectTopLevelParentUniqueName5 = Address.sln
+		SccProjectTopLevelParentUniqueName6 = Address.sln
+		SccProjectUniqueName1 = Address.Business\\Address.Business.csproj
+		SccProjectUniqueName2 = Address.View\\Address.View.csproj
+		SccProjectUniqueName3 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.DataBase\\Adapter.DataBase.csproj
+		SccProjectUniqueName4 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.Cache\\Adapter.Cache.csproj
+		SccProjectUniqueName5 = ..\\..\\..\\..\\Utilities\\Source\\Adapter\\Adapter.WCF\\Adapter.WCF.csproj
+		SccProjectUniqueName6 = Address.Wcf\\Address.Wcf.csproj
+		SccTeamFoundationServer = http://tfs.golden.net.vn:8080/tfs/gs.projectscollection
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +64,18 @@ Global
 		{24D708B9-1478-48F4-83D8-17030A804AB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24D708B9-1478-48F4-83D8-17030A804AB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24D708B9-1478-48F4-83D8-17030A804AB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B7407CFA-D4EF-460D-82D2-02AE69A79879}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B7407CFA-D4EF-460D-82D2-02AE69A79879}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7407CFA-D4EF-460D-82D2-02AE69A79879}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -72,28 +84,16 @@ Global
 		{BA121443-8527-476C-A560-B6A6F4851C05}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA121443-8527-476C-A560-B6A6F4851C05}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA121443-8527-476C-A560-B6A6F4851C05}.Release|Any CPU.Build.0 = Release|Any CPU
-		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{786EAB06-FC69-415B-825D-30AD2B9DBA93}.Release|Any CPU.Build.0 = Release|Any CPU
-		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B662F27E-274C-47FB-AB39-9026B5FECC51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{24D708B9-1478-48F4-83D8-17030A804AB7} = {F1900485-11F8-4BD7-977D-EFFCBA0A9370}
+		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0} = {7B346861-276F-4929-B237-32640E878245}
+		{786EAB06-FC69-415B-825D-30AD2B9DBA93} = {7B346861-276F-4929-B237-32640E878245}
+		{B662F27E-274C-47FB-AB39-9026B5FECC51} = {C2801575-C2FB-454A-BA71-CC2D729B578F}
 		{B7407CFA-D4EF-460D-82D2-02AE69A79879} = {97CA4F62-075E-4848-A5A5-C9EE4E910EC6}
 		{BA121443-8527-476C-A560-B6A6F4851C05} = {7B346861-276F-4929-B237-32640E878245}
-		{786EAB06-FC69-415B-825D-30AD2B9DBA93} = {7B346861-276F-4929-B237-32640E878245}
-		{376ED1EC-A562-4AAF-936D-A1EF121C5ED0} = {7B346861-276F-4929-B237-32640E878245}
-		{B662F27E-274C-47FB-AB39-9026B5FECC51} = {C2801575-C2FB-454A-BA71-CC2D729B578F}
 	EndGlobalSection
 EndGlobal

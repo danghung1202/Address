@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Security;
-using Address.View.Models;
+//using Address.View.Models;
 
 namespace Address.View.Controllers
 {
-    public class AccountController : GoldenSoft.SSO.Core.RP.Mvc.RPAuthenticationControllerBase
+    public class AccountController //: GoldenSoft.SSO.Core.RP.Mvc.RPAuthenticationControllerBase
     {
 
         ////

@@ -1,10 +1,10 @@
 ﻿//Var
-var GLOBE = new function() {
+var GLOBE = new function () {
     this.MAP_LARGE = undefined
     this.MAP_CONTROL_DOM = {
         'AddPolygonDiv': undefined
-        ,'EditPolygonDiv': undefined
-        ,'AddLocationBtn': undefined
+        , 'EditPolygonDiv': undefined
+        , 'AddLocationBtn': undefined
     }
     this.ADD_MODE = false
     this.EDIT_MODE = false
@@ -86,17 +86,17 @@ function toLatLng(lnglat) {
 }
 //flag cho biết path lấy ra có điểm đầu trùng điểm cuối không. Mặc định là true (điểm đầu trùng điểm cuối)
 function toMVCArray(lngLats, flag) {
-   if(flag == undefined)  { flag = true; }
-   var path = new google.maps.MVCArray();
-   $.each(lngLats, function (index, item) {
-            
-            if (item != "") {
-                path.insertAt(path.length, toLatLng(item));
-            }
-        });
-        if(!flag) {
-            path.removeAt(path.length-1);
+    if (flag == undefined) { flag = true; }
+    var path = new google.maps.MVCArray();
+    $.each(lngLats, function (index, item) {
+
+        if (item != "") {
+            path.insertAt(path.length, toLatLng(item));
         }
+    });
+    if (!flag) {
+        path.removeAt(path.length - 1);
+    }
     return path;
 }
 //flag cho biết path lấy ra có điểm đầu trùng điểm cuối không. Mặc định là true (điểm đầu trùng điểm cuối)
@@ -104,11 +104,11 @@ function toMVCArrayFromString(latLngs, flag) {
     if (flag == undefined) { flag = true; }
     var path = new google.maps.MVCArray();
 
-    var arrayLatLong = latLngs.split(','), item ="";
+    var arrayLatLong = latLngs.split(','), item = "";
     for (var i = 0; i < arrayLatLong.length; i = i + 2) {
         if (arrayLatLong[i] != "") {
             item = arrayLatLong[i + 1] + " " + arrayLatLong[i];
-            path.insertAt(path.length, new google.maps.LatLng(arrayLatLong[i], arrayLatLong[i+1]));
+            path.insertAt(path.length, new google.maps.LatLng(arrayLatLong[i], arrayLatLong[i + 1]));
         }
     }
     if (!flag) {
@@ -123,6 +123,7 @@ function showPointsInPoly() {
     $("#poly_dialog").dialog('open');
 }
 
+//ve polygon tu du lieu lay tu trang muabannhadat.com.vn
 function drawPolyFromPoints() {
     if (GLOBE.ADD_MODE) {
         ADDRESS.POLY_DRAFT.stopEdit();
@@ -143,7 +144,7 @@ function toDataForBindSelectTag(dataArray) {
     var options = '<option value="">Chọn địa danh</option>';
     $.each(dataArray, function (index, item) {
         if (item != "") {
-            options = options +  '<option value="' + item.A_ID + '" >' + item.A_Name + '</option>';
+            options = options + '<option value="' + item.A_ID + '" >' + item.A_Name + '</option>';
         }
     });
     return options;
@@ -235,7 +236,7 @@ function getAddress(current, selector_bind_data) {
                 $('#location_current  span').filter(function (jndex) { return jndex >= index }).remove();
 
                 $('.select_address_container  select').filter(function (jndex) { return jndex > index + 1 }).empty();
-                
+
                 var a = '<span> > <a href="javascript:void(0)" onclick="showAddress(' + data.A_Level + ');">' + data.A_Name + '</a> </span>';
 
                 $('#location_current').append(a);
@@ -298,9 +299,9 @@ $(document).ready(function () {
         google.maps.event.trigger(GLOBE.MAP_LARGE, 'resize');
     });
 
-//    $('.map_canvas').gsMap('event', 'resize', function () {
-//        $('.map_canvas').gsMap('fitBounds', ADDRESS.POLY_CURRENT);
-//    })
+    //    $('.map_canvas').gsMap('event', 'resize', function () {
+    //        $('.map_canvas').gsMap('fitBounds', ADDRESS.POLY_CURRENT);
+    //    })
 
     getAddress('#national_select', '#province_select');
     $(".div_inline_block").gsWaiting();
@@ -376,7 +377,7 @@ function showOnlyBorder(current) {
 Thêm địa danh
 */
 var addAddress = function () {
-    $('.select_address_container select').attr('disabled', true); 
+    $('.select_address_container select').attr('disabled', true);
     $('.map_canvas').gsMap('removeDraftLines');
     if (!GLOBE.ADD_MODE) {
         showOnlyBorder(ADDRESS.LEVEL_CURRENT.toString());
@@ -478,7 +479,7 @@ function cancerPoly(flag) {
         $("#address_dialog").dialog('close');
     }
     $('.select_address_container select').removeAttr('disabled');
-    
+
 }
 
 function savePoly() {
@@ -571,7 +572,7 @@ var polyClickHandler = function () {
             $("#address_dialog").html(data);
         },
         complete: function () {
-            
+
         },
         error: function (jqXHR, textStatus, errorThrown) {
             //hideImageLoading();
@@ -581,7 +582,7 @@ var polyClickHandler = function () {
 
 }
 
-var editAddress = function() {
+var editAddress = function () {
     $("#address_dialog").find('div.history_detail_container').css({ 'display': 'none' });
     closeDialog();
     GLOBE.EDIT_MODE = true;
@@ -645,7 +646,7 @@ function updatePoly() {
     }
 }
 
-var editInfoAddress = function() {
+var editInfoAddress = function () {
     $("#address_dialog").dialog('option', 'title', "sửa địa danh");
     $("#address_dialog").find('div.detail_address_form').css({ 'display': 'none' });
     $("#address_dialog").find('div.history_detail_container').css({ 'display': 'none' });
@@ -654,7 +655,7 @@ var editInfoAddress = function() {
 
 function exitEditPoly(flag) {
     if (flag == undefined) flag = true;
-   
+
     GLOBE.EDIT_MODE = false;
     $('.map_canvas').gsMap('setEditablePoly', ADDRESS.POLY_CURRENT, false);
     ADDRESS.MARKER_CURRENT.setDraggable(false);
@@ -702,19 +703,19 @@ function updateAddress() {
                     $("#address_dialog").find('div.detail_address_container').remove();
                     $("#address_dialog").find('div.history_detail_container').remove();
                     exitEditPoly(false);
-                    
+
                     //if (ADDRESS.LEVEL_CURRENT < 16) {
                     getAddress(toSelecor(ADDRESS.LEVEL_CURRENT), toSelecor(ADDRESS.LEVEL_CURRENT * 2));
-                    
-                    
+
+
                     //$('#location_current  span').filter(function (jndex) { return jndex == toLevel(ADDRESS.LEVEL_CURRENT.toString()) }).find('a').text(ADDRESS_OBJECT.A_NAME);
                     ADDRESS_OBJECT.DESTROY();
                     //} else {
-                        //getAddress(toSelecor(ADDRESS.LEVEL_CURRENT / 2), toSelecor(ADDRESS.LEVEL_CURRENT));
-                        //}
+                    //getAddress(toSelecor(ADDRESS.LEVEL_CURRENT / 2), toSelecor(ADDRESS.LEVEL_CURRENT));
+                    //}
                 }
             },
-            complete: function() {
+            complete: function () {
                 $('#updateBtn').removeAttr('disabled');
             },
             error: function (jqXHR, textStatus, errorThrown) {
@@ -746,47 +747,47 @@ function backToDetail() {
 }
 
 function deleteAddress() {
-    
-        var bValid = true;
-        bValid = bValid && checkLength($('#reasons'), "lý do xóa địa danh", 5, 1000);
-        if (bValid && confirm("Bạn chắc chắn muốn xóa địa danh này!")) {
-            $('#deleteBtn').attr('disabled', true);
-            ADDRESS_OBJECT.A_ID = ADDRESS.IDS[ADDRESS.LEVEL_CURRENT.toString()];
-            $.ajax({
-                type: "POST",
-                url: "/address/delete",
-                cache: false,
-                data: { aid: ADDRESS_OBJECT.A_ID, reasons: $('#reasons').val() },
-                dataType: 'json',
-                success: function (data) {
-                    if (data.success) {
-                        $("#address_dialog").html('<div style="text-align:center;"><h4>cập nhật địa danh thành công</h4></div><div style="text-align: right;"><input type="button" onclick="closeDialog();" value="đóng" /></div>');
-                        if (data.urole > 2) { //Nếu user là admin xóa thì đánh dấu xóa luôn
-                            //reload lai thang cha cua dia chi nay
-                            if (ADDRESS.LEVEL_CURRENT > 1) {
-                                getAddress(toSelecor(ADDRESS.LEVEL_CURRENT / 2), toSelecor(ADDRESS.LEVEL_CURRENT));
-                            } else {
-                                ADDRESS.POLY_CURRENT.setMap(null);
-                                ADDRESS.MARKER_CURRENT.setMap(null);
-                                $('.select_address_container  select').filter(function (jndex) { return jndex > 0 }).empty();
-                            }
+
+    var bValid = true;
+    bValid = bValid && checkLength($('#reasons'), "lý do xóa địa danh", 5, 1000);
+    if (bValid && confirm("Bạn chắc chắn muốn xóa địa danh này!")) {
+        $('#deleteBtn').attr('disabled', true);
+        ADDRESS_OBJECT.A_ID = ADDRESS.IDS[ADDRESS.LEVEL_CURRENT.toString()];
+        $.ajax({
+            type: "POST",
+            url: "/address/delete",
+            cache: false,
+            data: { aid: ADDRESS_OBJECT.A_ID, reasons: $('#reasons').val() },
+            dataType: 'json',
+            success: function (data) {
+                if (data.success) {
+                    $("#address_dialog").html('<div style="text-align:center;"><h4>cập nhật địa danh thành công</h4></div><div style="text-align: right;"><input type="button" onclick="closeDialog();" value="đóng" /></div>');
+                    if (data.urole > 2) { //Nếu user là admin xóa thì đánh dấu xóa luôn
+                        //reload lai thang cha cua dia chi nay
+                        if (ADDRESS.LEVEL_CURRENT > 1) {
+                            getAddress(toSelecor(ADDRESS.LEVEL_CURRENT / 2), toSelecor(ADDRESS.LEVEL_CURRENT));
+                        } else {
+                            ADDRESS.POLY_CURRENT.setMap(null);
+                            ADDRESS.MARKER_CURRENT.setMap(null);
+                            $('.select_address_container  select').filter(function (jndex) { return jndex > 0 }).empty();
                         }
                     }
-                    else {
-                        $("#address_dialog").find('div.delete_address_form').append('div style="text-align:center; color: Red;">cập nhật địa danh không thành công</div>');
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    //hideImageLoading();
-                    alert(jqXHR.status + ':' + errorThrown);
                 }
-                , complete: function () {
-                    $('#deleteBtn').removeAttr('disabled');
+                else {
+                    $("#address_dialog").find('div.delete_address_form').append('div style="text-align:center; color: Red;">cập nhật địa danh không thành công</div>');
                 }
-            });
-        }
-
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                //hideImageLoading();
+                alert(jqXHR.status + ':' + errorThrown);
+            }
+            , complete: function () {
+                $('#deleteBtn').removeAttr('disabled');
+            }
+        });
     }
+
+}
 
 /*
 xu ly lich su
@@ -839,7 +840,7 @@ function toggleHistoryView(flag) {
         $("#address_dialog").find('div.history_summary_container').show();
     } else {
         $("#address_dialog").dialog("option", "title", "chi tiết địa danh");
-        $("#address_dialog").dialog("option", "position", [150,80]);
+        $("#address_dialog").dialog("option", "position", [150, 80]);
         $("#address_dialog").dialog("option", "width", 740);
         $("#address_dialog").dialog("option", "height", 470);
         $("#address_dialog").find('div.detail_address_container').show();
@@ -895,9 +896,9 @@ function historyClick(current, hid) {
                 $('.map_canvas').gsMap("fitBounds", ADDRESS.POLY_CURRENT);
                 google.maps.event.clearListeners(ADDRESS.POLY_CURRENT, "click");
                 ADDRESS.EVENT_CURRENT["poly_current"] = $('.map_canvas').gsMap("addEvent", ADDRESS.POLY_CURRENT, 'click', function () { $("#address_dialog").dialog('open'); });
-                
+
             },
-            complete: function() {
+            complete: function () {
                 $(".div_inline_block").has($(current)).gsWaiting('hide');
             },
             error: function (jqXHR, textStatus, errorThrown) {

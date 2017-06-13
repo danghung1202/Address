@@ -5,21 +5,25 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=vi" type="text/javascript"></script>
 
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
-    <link href="../../Content/address.css" rel="stylesheet" type="text/css" />
+    @*<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="../../Content/address.css" rel="stylesheet" type="text/css" />*@
+    @System.Web.Optimization.Styles.Render("~/Content/css")
+
     <link href="http://js.golden.net.vn/jquery/UI/v1.8.16/css/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
-    
     <script src="@Url.Content("http://js.golden.net.vn/jquery/core/v1.6.4/jquery-1.6.4.min.js")" type="text/javascript"></script>
     <script src="@Url.Content("http://js.golden.net.vn/jquery/UI/v1.8.16/jquery-ui-1.8.16.custom.min.js")" type="text/javascript"></script>
 
-    <script src="../../Scripts/jquery.ba-resize.min.js" type="text/javascript"></script>
+    @*<script src="../../Scripts/jquery.ba-resize.min.js" type="text/javascript"></script>*@
 
-    <script src="../../Scripts/address/gs.address.common.js" type="text/javascript"></script>
-    <script src="../../Scripts/gsPanel.js" type="text/javascript"></script>
+    
+    @*<script src="../../Scripts/gsPanel.js" type="text/javascript"></script>
     <script src="../../Scripts/gsScrollPagination.js" type="text/javascript"></script>
     <script src="../../Scripts/gsWaiting.js" type="text/javascript"></script>
-    <script src="../../Scripts/gsMap.js" type="text/javascript"></script>
-    <script src="../../Scripts/address/gs.address.js" type="text/javascript"></script>
+    <script src="../../Scripts/gsMap.js" type="text/javascript"></script>*@
+    @System.Web.Optimization.Scripts.Render("~/bundles/plugins")
+    @System.Web.Optimization.Scripts.Render("~/bundles/addressjs")
+    @*<script src="../../Scripts/address/gs.address.common.js" type="text/javascript"></script>
+    <script src="../../Scripts/address/gs.address.js" type="text/javascript"></script>*@
     
     <script type="text/javascript">
         $(function () {
