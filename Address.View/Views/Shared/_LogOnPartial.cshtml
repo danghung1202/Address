@@ -1,0 +1,7 @@
+﻿@if(Request.IsAuthenticated) {
+    <text>Xin chào <strong>@User.Identity.Name</strong>!
+    [ @Html.ActionLink("Đăng xuất", "LogOut", "Account") ]</text>
+}
+else {
+    @:[ @Html.ActionLink("Đăng nhập", "LogOn", "Account") ]
+}

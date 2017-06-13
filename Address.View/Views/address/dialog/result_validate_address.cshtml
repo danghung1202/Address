@@ -1,0 +1,40 @@
+﻿@model Address.Business.Entities.ResultValidate
+
+<div class = "add_address_result">
+@if (Model.DiemNamTrongDuongBao == 1 && Model.DuongBaoHopLe == 1 && Model.DuongBaoNamTrongDuongBao == 1 && Model.DiaDanhTrung.Count == 0)
+{
+    <div class="add_address_success">
+       <h3>cập nhật địa danh thành công!</h3>
+       <div style="text-align: right;">
+        <input type="button" id="closeBtn" onclick="closeDialog();" value="đóng" />
+       </div>
+    </div>
+}
+else { 
+    <div class="add_address_fail">
+    <span ><b>cập nhật địa danh không thành công!</b></span><br />
+        @if(Model.DiemNamTrongDuongBao == 0) {
+            <span class="text_validate_error">tâm không nằm trong đường bao!</span><br />
+        }
+        @if(Model.DuongBaoHopLe == 0) {
+            <span class="text_validate_error">đường bao vẽ chưa hợp lệ!</span><br />
+        }
+        @if (Model.DuongBaoNamTrongDuongBao == 0)
+        {
+            <span class="text_validate_error">đường bao không nằm trong đường bao cha!</span><br />
+        }
+        @if(Model.DiaDanhTrung.Count > 0) {
+            <span>các địa danh đã tồn tại trùng với bạn tạo</span><br />
+            <ul>
+            @foreach (Address.Business.Entities.Address address in Model.DiaDanhTrung) { 
+                <li>@address.A_Name</li>
+            }
+            </ul>
+        }
+    </div>
+}
+</div>
+<style type="text/css">
+.text_validate_error { color: Red; }
+
+</style>

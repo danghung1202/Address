@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AddressService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:5699/AddressService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:5699/AddressService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:5699/AddressService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Address.Business.Entities" />
+      <xsd:import schemaLocation="http://localhost:5699/AddressService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAddressService_Address_Add_InputMessage">
+    <wsdl:part name="parameters" element="tns:Address_Add" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_Add_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Address_AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_RestoreFromHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:Address_RestoreFromHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_RestoreFromHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Address_RestoreFromHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_GetDetailWithChildren_InputMessage">
+    <wsdl:part name="parameters" element="tns:Address_GetDetailWithChildren" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_GetDetailWithChildren_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Address_GetDetailWithChildrenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_GetDetailWithHistory_InputMessage">
+    <wsdl:part name="parameters" element="tns:Address_GetDetailWithHistory" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_GetDetailWithHistory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Address_GetDetailWithHistoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_Review_InputMessage">
+    <wsdl:part name="parameters" element="tns:Address_Review" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_Address_Review_OutputMessage">
+    <wsdl:part name="parameters" element="tns:Address_ReviewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_AddAddress_InputMessage">
+    <wsdl:part name="parameters" element="tns:History_AddAddress" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_AddAddress_OutputMessage">
+    <wsdl:part name="parameters" element="tns:History_AddAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_Update_InputMessage">
+    <wsdl:part name="parameters" element="tns:History_Update" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_Update_OutputMessage">
+    <wsdl:part name="parameters" element="tns:History_UpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_GetAddressOfUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:History_GetAddressOfUser" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_GetAddressOfUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:History_GetAddressOfUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_GetDetail_InputMessage">
+    <wsdl:part name="parameters" element="tns:History_GetDetail" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_History_GetDetail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:History_GetDetailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_User_Add_InputMessage">
+    <wsdl:part name="parameters" element="tns:User_Add" />
+  </wsdl:message>
+  <wsdl:message name="IAddressService_User_Add_OutputMessage">
+    <wsdl:part name="parameters" element="tns:User_AddResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAddressService">
+    <wsdl:operation name="Address_Add">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/Address_Add" message="tns:IAddressService_Address_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/Address_AddResponse" message="tns:IAddressService_Address_Add_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Address_RestoreFromHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/Address_RestoreFromHistory" message="tns:IAddressService_Address_RestoreFromHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/Address_RestoreFromHistoryResponse" message="tns:IAddressService_Address_RestoreFromHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Address_GetDetailWithChildren">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/Address_GetDetailWithChildren" message="tns:IAddressService_Address_GetDetailWithChildren_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/Address_GetDetailWithChildrenResponse" message="tns:IAddressService_Address_GetDetailWithChildren_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Address_GetDetailWithHistory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/Address_GetDetailWithHistory" message="tns:IAddressService_Address_GetDetailWithHistory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/Address_GetDetailWithHistoryResponse" message="tns:IAddressService_Address_GetDetailWithHistory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Address_Review">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/Address_Review" message="tns:IAddressService_Address_Review_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/Address_ReviewResponse" message="tns:IAddressService_Address_Review_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="History_AddAddress">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/History_AddAddress" message="tns:IAddressService_History_AddAddress_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/History_AddAddressResponse" message="tns:IAddressService_History_AddAddress_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="History_Update">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/History_Update" message="tns:IAddressService_History_Update_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/History_UpdateResponse" message="tns:IAddressService_History_Update_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="History_GetAddressOfUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/History_GetAddressOfUser" message="tns:IAddressService_History_GetAddressOfUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/History_GetAddressOfUserResponse" message="tns:IAddressService_History_GetAddressOfUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="History_GetDetail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/History_GetDetail" message="tns:IAddressService_History_GetDetail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/History_GetDetailResponse" message="tns:IAddressService_History_GetDetail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="User_Add">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAddressService/User_Add" message="tns:IAddressService_User_Add_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAddressService/User_AddResponse" message="tns:IAddressService_User_Add_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAddressService" type="tns:IAddressService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Address_Add">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/Address_Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Address_RestoreFromHistory">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/Address_RestoreFromHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Address_GetDetailWithChildren">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/Address_GetDetailWithChildren" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Address_GetDetailWithHistory">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/Address_GetDetailWithHistory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Address_Review">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/Address_Review" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History_AddAddress">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/History_AddAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History_Update">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/History_Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History_GetAddressOfUser">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/History_GetAddressOfUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="History_GetDetail">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/History_GetDetail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="User_Add">
+      <soap:operation soapAction="http://tempuri.org/IAddressService/User_Add" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddressService">
+    <wsdl:port name="BasicHttpBinding_IAddressService" binding="tns:BasicHttpBinding_IAddressService">
+      <soap:address location="http://localhost:5699/AddressService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

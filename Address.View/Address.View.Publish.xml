@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\GoldenSoft\Publishs\address.location.golden.net.vn" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Views/Account/Register.cshtml" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="Views/address/dialog/add.cshtml" publishTime="05/25/2012 16:46:15" />
+    <file relUrl="Scripts/gsWaiting.js" publishTime="05/25/2012 15:27:57" />
+    <file relUrl="Scripts/gsPanel.js" publishTime="05/23/2012 13:00:37" />
+    <file relUrl="sso/release/GoldenSoft.SSO.Core.dll" publishTime="12/13/2011 12:36:32" />
+    <file relUrl="Global.asax" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="bin/EntityFramework.xml" publishTime="05/04/2012 09:33:58" />
+    <file relUrl="Views/_ViewStart.cshtml" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="Views/Account/ChangePassword.cshtml" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="bin/Adapter.WCF.dll" publishTime="06/11/2012 13:56:47" />
+    <file relUrl="Views/Account/ChangePasswordSuccess.cshtml" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="Views/history/index.cshtml" publishTime="05/31/2012 11:52:13" />
+    <file relUrl="Views/Shared/_LogOnPartial.cshtml" publishTime="05/30/2012 21:59:51" />
+    <file relUrl="Views/Shared/Error.cshtml" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="Scripts/jquery.ba-resize.min.js" publishTime="05/14/2012 10:23:13" />
+    <file relUrl="Scripts/address/gs.address.common.js" publishTime="06/27/2012 12:01:45" />
+    <file relUrl="Content/address.css" publishTime="06/08/2012 17:45:25" />
+    <file relUrl="bin/Adapter.DataBase.pdb" publishTime="06/11/2012 13:56:46" />
+    <file relUrl="config/metadata.xml" publishTime="05/24/2012 09:00:26" />
+    <file relUrl="packages.config" publishTime="05/04/2012 09:34:01" />
+    <file relUrl="sso/debug/GoldenSoft.SSO.Core.dll" publishTime="12/13/2011 12:36:31" />
+    <file relUrl="bin/Address.Business.pdb" publishTime="06/11/2012 13:56:48" />
+    <file relUrl="Scripts/gsScrollPagination.js" publishTime="05/23/2012 09:23:24" />
+    <file relUrl="bin/Adapter.DataBase.dll" publishTime="06/11/2012 13:56:46" />
+    <file relUrl="bin/Adapter.WCF.pdb" publishTime="06/11/2012 13:56:47" />
+    <file relUrl="bin/GoldenSoft.SSO.Core.dll" publishTime="12/13/2011 12:36:31" />
+    <file relUrl="bin/Address.View.dll" publishTime="06/27/2012 11:43:22" />
+    <file relUrl="bin/Address.Business.dll" publishTime="06/11/2012 13:56:49" />
+    <file relUrl="Views/address/Index.cshtml" publishTime="05/31/2012 11:53:21" />
+    <file relUrl="Views/Shared/_Layout.cshtml" publishTime="06/27/2012 14:00:39" />
+    <file relUrl="bin/Address.View.pdb" publishTime="06/27/2012 11:43:22" />
+    <file relUrl="Views/Account/LogOn.cshtml" publishTime="05/04/2012 09:33:40" />
+    <file relUrl="Views/address/dialog/detail.cshtml" publishTime="05/31/2012 08:55:02" />
+    <file relUrl="Views/address/dialog/result_validate_address.cshtml" publishTime="05/18/2012 11:01:24" />
+    <file relUrl="Scripts/address/gs.address.js" publishTime="06/27/2012 13:57:35" />
+    <file relUrl="Scripts/gsMap.js" publishTime="05/26/2012 09:57:06" />
+    <file relUrl="Web.config" publishTime="06/27/2012 14:14:04" />
+    <file relUrl="Content/Site.css" publishTime="05/18/2012 11:17:40" />
+    <file relUrl="bin/EntityFramework.dll" publishTime="05/04/2012 09:33:58" />
+    <file relUrl="Views/Web.config" publishTime="05/04/2012 09:33:40" />
+  </publishProfile>
+</publishData>

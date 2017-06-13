@@ -1,0 +1,18 @@
+﻿<div class="add_address_container">
+    <div class="add_address_form">
+       <div><label>tên địa danh</label></div>     
+       <div><input type="text" name="A_Name" id="A_Name" /></div>
+       <div><label>miêu tả địa danh</label></div>
+       <div><textarea rows="16" cols="10" name="A_Description" id="A_Description" /></div>
+
+       <div style="text-align: right;">
+        <input type="button"  id="addBtn" onclick="saveAddress();" value="lưu" />
+        <input type="button" id="cancerBtn" onclick="cancerPoly();" value="hủy" />
+        <input type="button" id="closeBtn" onclick="closeDialog();" value="đóng" />
+       </div>
+    </div>
+</div>
+<style type="text/css">
+    .add_address_form input[type="text"] { width: 100%; }
+    .add_address_form textarea { width: 100%; }
+</style>

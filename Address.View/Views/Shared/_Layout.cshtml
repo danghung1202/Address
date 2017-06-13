@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places&language=vi" type="text/javascript"></script>
+
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="../../Content/address.css" rel="stylesheet" type="text/css" />
+    <link href="http://js.golden.net.vn/jquery/UI/v1.8.16/css/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+    
+    <script src="@Url.Content("http://js.golden.net.vn/jquery/core/v1.6.4/jquery-1.6.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("http://js.golden.net.vn/jquery/UI/v1.8.16/jquery-ui-1.8.16.custom.min.js")" type="text/javascript"></script>
+
+    <script src="../../Scripts/jquery.ba-resize.min.js" type="text/javascript"></script>
+
+    <script src="../../Scripts/address/gs.address.common.js" type="text/javascript"></script>
+    <script src="../../Scripts/gsPanel.js" type="text/javascript"></script>
+    <script src="../../Scripts/gsScrollPagination.js" type="text/javascript"></script>
+    <script src="../../Scripts/gsWaiting.js" type="text/javascript"></script>
+    <script src="../../Scripts/gsMap.js" type="text/javascript"></script>
+    <script src="../../Scripts/address/gs.address.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#address_dialog, #poly_dialog').dialog({
+                height: 470,
+                width: 740,
+                modal: true,
+                resizable: false,
+                autoOpen: false
+            });
+            $("#address_dialog").bind("dialogclose", function (event, ui) {
+                var width = $("#address_dialog").dialog("option", "width");
+                if (width < 740) {
+                    $("#address_dialog").dialog("option", "position", [150, 80]);
+                    $("#address_dialog").dialog("option", "width", 740);
+                    $("#address_dialog").dialog("option", "height", 470);
+                }
+                if (GLOBE.HISTORY_MODE) {
+                    showAddress(ADDRESS.LEVEL_CURRENT);
+                    GLOBE.HISTORY_MODE = false
+                }
+            });
+        });
+    </script>
+    <style type="text/css">
+        .ui-dialog .ui-widget-header { background: none; border: none; color: #000; }
+        .ui-dialog .ui-widget-header .ui-icon { }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <div class="page-banner">
+            <div class="page-banner-logo">Địa giới hành chính</div>
+            <div class="page-banner-login">@Html.Partial("_LogOnPartial")</div>
+        </div>
+        <div class="page-content">
+            @RenderBody()
+        </div>
+        <div class="page-footer">
+            <div id="location_current">
+                <label>Vị trí </label>
+            </div>
+        </div>
+        <div id="address_dialog"></div>
+        <div id="poly_dialog">
+            <div class="poly_data">
+               <div><label>định dạng dữ liệu theo</label></div>     
+               <div><span class="text" id="format_name">dữ liệu xuất ra theo trang MuaBanNhaDat.com</span></div>
+               <div><label>dữ liệu vào</label></div>
+               <div><textarea rows="16" cols="10" style = "width: 100%;"   id="extracted_data"></textarea></div>
+               
+               <div style="text-align: right;">
+                <input type="button"  onclick="drawPolyFromPoints();" value="cập nhật" />
+                <input type="button"  onclick="closeDialog();" value="đóng" />
+               </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

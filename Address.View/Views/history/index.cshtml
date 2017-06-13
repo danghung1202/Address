@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Address.Business.Entities.History>
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <div onclick="historyClick(this,'@item.H_ID');" title="@Html.DisplayFor(modelItem => item.H_ActionDetail)" class="@("history_row history_status_" + item.H_Status)">
+            <div><span>@Html.DisplayFor(modelItem => item.H_Address.A_Name)</span> -> @Html.DisplayFor(modelItem => item.H_Name) <span>&nbsp;(@String.Format("{0:dd/MM/yyyy}", item.H_CreatedOnDate))</span> </div>
+            <div><span>@Html.DisplayFor(modelItem => item.H_Action)</span> -> @Html.DisplayFor(modelItem => item.H_ActionDetail)</div>
+        </div>
+    }
+
+}
+else { 
+    <div> <span>Chưa có cập nhật nào</span></div>
+
+}

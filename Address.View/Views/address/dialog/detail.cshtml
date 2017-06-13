@@ -1,0 +1,98 @@
+﻿@model Address.Business.Entities.Address
+<div class="detail_address_container">
+    <div class="detail_address_form">
+       <div><label>tên địa danh</label></div>     
+       <div><span class="text" id="display_name">@Model.A_Name</span></div>
+       <div><label>miêu tả địa danh</label></div>
+       <div><textarea rows="13" cols="10" name="A_Description" readonly="readonly" id="display_desc"  >@Model.A_Description</textarea></div>
+       <div><label>@((Model.A_Status & 5) == 0 ? "địa danh đươc review bởi " + Model.A_ReviewedByUser : "địa danh chưa được review")</label></div>
+       <div style="text-align: right;">
+        <input type="button"  onclick="authorize(editAddress);" value="sửa đường nét" />
+        <input type="button"  onclick="authorize(editInfoAddress);" value="sửa thông tin" />
+        <input type="button"  onclick="authorize(beginDelAddress);" value="xóa địa danh" />
+        <input type="button"  onclick="closeDialog();" value="đóng" />
+       </div>
+    </div>
+    <div style="display: none;" class="edit_address_form">
+        <div><label>tên địa danh</label></div>     
+       <div><input type="text" name="A_Name" id="A_Name" value="@Model.A_Name" /></div>
+       <div><label>miêu tả địa danh</label></div>
+       <div><textarea rows="16" cols="10" name="A_Description" id="A_Description" >@Model.A_Description</textarea></div>
+
+       <div style="text-align: right;">
+        <input type="button" id="updateBtn"  onclick="updateAddress();" value="lưu" />
+        <input type="button"  onclick="backToDetail();" value="quay lại" />
+        <input type="button"  onclick="exitEditPoly();" value="hủy" />
+        <input type="button" onclick="closeDialog();" value="đóng" />
+       </div>
+    
+    </div>
+    <div style="display: none;" class="delete_address_form">
+       
+       <div><label>lý do xóa địa danh</label></div>
+       <div><textarea rows="6" cols="10" name="reasons" id="reasons"></textarea></div>
+
+       <div style="text-align: right;">
+        <input type="button" id="deleteBtn"   onclick="deleteAddress();" value="lưu" />
+        <input type="button"  onclick="backToDetail();" value="quay lại" />
+        <input type="button" onclick="closeDialog();" value="đóng" />
+       </div>
+    
+    </div>
+</div>
+<div class="history_address_container">
+
+<div class="history_detail_container">
+<br />
+<span><b>lịch sử cập nhật</b> - <a href="javascript:void(0)" onclick="toggleHistoryView(false);">xem đường nét</a></span>
+    <table>
+        <thead>
+            <tr>
+                <th>người tạo</th>
+                <th>thao tác</th>
+                <th>chi tiết</th>
+                <th>ngày tạo</th>
+                <th>trạng thái</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Address.Business.Entities.History h in Model.A_History)
+            { 
+                <tr    class="@("history_address_row history_status_" + h.H_Status + " " + h.H_ID)">
+                    <td>@h.H_CreatedByUser</td>
+                    <td>@h.H_Action</td>
+                    <td>@h.H_ActionDetail</td>
+                    <td>@String.Format("{0:dd/MM/yyyy}", h.H_CreatedOnDate)</td>
+                    <td>
+                    @if (h.H_Status == 2)
+                    {  
+                        <a href="javascript:void(0)" title="click vào để xem chi tiết" onclick="getDetailHistory('@h.H_ID');">hiện tại</a>
+                    
+                    }
+                    else
+                    {
+                        <a href="javascript:void(0)" title="click vào để xem chi tiết" onclick="getDetailHistory('@h.H_ID');">chi tiết</a>
+                        if (h.H_IsRestore == 1)
+                        { 
+                            <span> - </span><a href="javascript:void(0)" title="áp dụng phiên bản lịch sử" onclick="restoreHistory('@h.H_ID');">áp dụng</a>
+                        }
+                    }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<div class="history_summary_container" style="display: none;">
+
+    @foreach (Address.Business.Entities.History h in Model.A_History)
+    { 
+        <div title="@h.H_ActionDetail" class="@("history_address_row history_status_" + h.H_Status + " " + h.H_ID)" onclick="getDetailHistory('@h.H_ID');">@(h.H_CreatedByUser + " - " + h.H_Action)</div>
+    }
+   
+   <div><a href="javascript:void(0)" onclick="toggleHistoryView(true);">xem thông tin</a></div>
+</div>
+</div>
+
+

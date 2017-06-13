@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Address.Wcf.AddressService" CodeBehind="AddressService.svc.cs" Factory="System.ServiceModel.Activation.WebScriptServiceHostFactory" %>

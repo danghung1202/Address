@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Địa giới hành chính quốc gia";
+}
+
+<div class="layout_panel">
+    <div class="right_container">
+        <div class="select_address_container">
+            <div>
+                <label>Quốc gia</label>
+                <select   onchange='getAddress("#national_select","#province_select");' id="national_select">
+                    <option selected value="3A3DC609-B9A4-43D2-830D-EECD27F6523E">Việt Nam</option>
+                </select>
+            </div>
+            <div>
+                <label>Tỉnh/Thành phố</label>
+                <select onchange='getAddress("#province_select","#district_select");' id="province_select"></select>
+            </div>
+            <div>
+                <label>Quận/Huyện</label>
+                <select onchange='getAddress("#district_select","#block_select");' id="district_select"></select>
+            </div>
+            <div>
+                <label>Phường/Xã</label>
+                <select onchange='getAddress("#block_select","#road_select");' id="block_select"></select>
+            </div>
+            <div>
+                <label>Đường</label>
+                <select onchange='getAddress("#road_select","#");' id="road_select"></select>
+            </div>
+        </div>
+         @if (ViewBag.NewestAddress != null) { 
+            
+            <div class="div_inline_block">
+                <div class="div_header" onclick="toggleTwoDivs('.newest_container', '.history_container');"><b>»»Các cập nhật mới</b></div> 
+                <div class="newest_container" >
+                    <div class="newest_content">
+                        @Html.Partial("../history/index", (List<Address.Business.Entities.History>)ViewBag.NewestAddress)
+                    </div>
+                </div>
+            </div>
+             
+         }
+         @if (User.Identity.IsAuthenticated && ViewBag.Histories != null )
+            { 
+            <div class="div_inline_block">
+                <div class="div_header" onclick="toggleTwoDivs('.history_container','.newest_container');"><b>»»Các thao tác gần đây</b></div> 
+                <div class="history_container" >
+                    <div class="history_content">
+                        @Html.Partial("../history/index", (List<Address.Business.Entities.History>)ViewBag.Histories)
+                    </div>
+                </div>
+            </div>
+            }
+             
+         
+    </div>
+    <div class="map_canvas">
+        
+    </div>
+</div>
