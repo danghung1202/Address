@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
@@ -50,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\Database\IDBAdapter.cs" />
+    <Compile Include="Adapter\Database\MSSqlDBAdapter.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\AddressBorderExtension.cs" />
     <Compile Include="Entities\AddressCenterExtension.cs" />
@@ -64,12 +67,6 @@
     <Compile Include="Status\AddressStatus.cs" />
     <Compile Include="Status\HistoryStatus.cs" />
     <Compile Include="Status\UserRoles.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Utilities\Source\Adapter\Adapter.DataBase\Adapter.DataBase.csproj">
-      <Project>{ba121443-8527-476c-a560-b6a6f4851c05}</Project>
-      <Name>Adapter.DataBase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
